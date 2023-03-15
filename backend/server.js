@@ -36,6 +36,12 @@ connection.once("open",() => {
 const locationRouter = require('./routes/locationRoute');
 app.use('/location', locationRouter);
 
+
+//boat define
+const boatRouter = require('./routes/boateRoutes');
+app.use('/boat', boatRouter);
+
+
 //port
 app.listen(PORT, ()=>{
     console.log(`App is running on ${PORT}`);

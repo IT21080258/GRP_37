@@ -1,0 +1,37 @@
+//Model of payment collection
+
+
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+//create payment object
+const BoatSchema = new Schema ({
+    Bname:{
+        type: String,
+        required: true
+    },
+    equipment:{
+        type : String,
+        
+    },
+    Owner:{
+        type : String,
+        required: true
+    },
+    capacity:{
+        type : Number,
+        required: true
+    },
+    description:{
+        type: String,
+        required: true
+    },
+    gps:{
+
+        type:String,
+        required:true
+
+    }
+})
+
+const boat = mongoose.model("boat" ,BoatSchema );
+module.exports = boat;
