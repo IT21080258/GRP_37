@@ -29,7 +29,7 @@ mongoose.connect(URL,{
 //Check connection status
 const connection = mongoose.connection;
 connection.once("open",() => {
-    console.log("Mongodb connection success");
+    console.log("Mongodb connection success!");
 })
 
 //location define
@@ -38,7 +38,7 @@ app.use('/location', locationRouter);
 
 
 //boat define
-const boatRouter = require('./routes/boateRoutes');
+const boatRouter = require('./routes/boatRoutes');
 app.use('/boat', boatRouter);
 
 
