@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 let Boat = require('../models/boatModel');
 
-//read Boat
+//read Boats
 router.route('/').get((req, res) => {
     Boat.find()
         .then(Boat => res.json(Boat))
@@ -11,21 +11,21 @@ router.route('/').get((req, res) => {
 
 //adding Boat
 router.route('/add').post((req, res) => {
-    const Name = req.body.Bname;
-    const Equipments = req.body.equipment;
+    const Bname = req.body.Bname;
+    const equipments = req.body.equipment;
     const Owner = req.body.Owner;
-    const Capacity = Number(req.body.capacity);
-    const Description = req.body.description;
-    const GPS = req.body.gps;
+    const capacity = Number(req.body.capacity);
+    const description = req.body.description;
+    const gps = req.body.gps;
     
       
     const newBoat = new Boat({
-      Name,
-      Equipments,
+      Bname,
+      equipments,
       Owner,
-      Capacity,
-      Description,
-      GPS
+      capacity,
+      description,
+      gps
     });
     newBoat.save()
     .then(() => res.json('boat added !'))
@@ -35,7 +35,7 @@ router.route('/add').post((req, res) => {
 //delete boat
   router.route('/delete/:id').delete((req, res) => {
     Boat.findByIdAndDelete(req.params.id)
-      .then(() => res.json('Boat refunded.'))
+      .then(() => res.json('Boat Removed!'))
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
@@ -57,12 +57,12 @@ router.route('/update/:id').post((req, res) => {
    Boat.findById(req.params.id)
      .then(Boat => {
       
-      const Name = req.body.Bname;
-      const Equipments = req.body.equipment;
-      const Owner = req.body.Owner;
-      const Capacity = Number(req.body.capacity);
-      const Description = req.body.description;
-      const GPS = req.body.gps;
+      Boat.Bname = req.body.Bname;
+      Boat.equipments = req.body.equipment;
+      Boat.Owner = req.body.Owner;
+      Boat.capacity = Number(req.body.capacity);
+      Boat.description = req.body.description;
+      Boat.gps = req.body.gps;
 
        //save boat to database and catch errors if any
        Boat.save()
