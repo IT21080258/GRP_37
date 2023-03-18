@@ -1,37 +1,34 @@
-//Model of boat collection
+//Model of user collection
 
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-//create boat object
-const BoatSchema = new Schema ({
-    Bname:{
+
+//create user object
+const UserSchema = new Schema ({
+    name:{
         type: String,
         required: true
     },
-    equipment:{
+    telephone:{
         type : String,
+        required: true
         
     },
-    Owner:{
+    email:{
         type : String,
         required: true
     },
-    capacity:{
+    username:{
         type : Number,
         required: true
     },
-    description:{
+    password:{
         type: String,
         required: true
-    },
-    gps:{
-
-        type:String,
-        required:true
-
     }
+    
 })
 
-const boat = mongoose.model("boat" ,BoatSchema );
-module.exports = boat;
+const user = mongoose.model("user" ,UserSchema );
+module.exports = user;
