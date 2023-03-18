@@ -1,4 +1,4 @@
-//import routers and paymentmodel
+//import routers and locationModel
 const router = require('express').Router();
 
 let location = require('../models/locationModel');
@@ -42,11 +42,11 @@ router.route('/delete/:id').delete((req,res) => {
 router.route("/get/:id").get(async (req, res)=>{
     let locationId = req.params.id;
     const locationOne = await location.findById(locationId)
-      .then((locaion)=>{
-        res.status(200).send({status: "locaion Fetched", locaion})
+      .then((location)=>{
+        res.status(200).send({status: "location Fetched", location})
       }).catch((err)=>{
             console.log(err.message);
-            res.status(500).send({status: "Error with locaion fetch",error:err.message});
+            res.status(500).send({status: "Error with location fetch",error:err.message});
         
     })
   })
@@ -61,7 +61,7 @@ router.route('/update/:id').post((req, res) => {
             location.animal = req.body.animal;
             location.authorizedBy = req.body.authorizedBy;
         //save location to database and catch errors if any
-        Payment.save()
+        location.save()
           .then(() => res.json('Location updated!'))
           .catch(err => res.status(400).json('Error: ' + err));
      })

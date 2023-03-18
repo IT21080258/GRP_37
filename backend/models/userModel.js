@@ -11,7 +11,7 @@ const UserSchema = new Schema ({
         required: true
     },
     telephone:{
-        type : String,
+        type : Number,
         required: true
         
     },
@@ -20,7 +20,7 @@ const UserSchema = new Schema ({
         required: true
     },
     username:{
-        type : Number,
+        type : String,
         required: true
     },
     password:{
