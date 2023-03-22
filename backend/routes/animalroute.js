@@ -33,7 +33,7 @@ router.route('/add').post((req, res) => {
  //delete Animal
   router.route('/delete/:id').delete((req, res) => {
     Animal.findByIdAndDelete(req.params.id)
-      .then(() => res.json('Animal refunded.'))
+      .then(() => res.json('Animal Deleted.'))
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
