@@ -41,6 +41,10 @@ app.use('/location', locationRouter);
 const boatRouter = require('./routes/boatRoutes');
 app.use('/boat', boatRouter);
 
+//animal define
+const animalRouter = require('./routes/animalroute');
+app.use('/animal', animalRouter);
+
 
 //port
 app.listen(PORT, ()=>{
