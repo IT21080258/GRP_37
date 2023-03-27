@@ -1,7 +1,7 @@
 //model of trip. This is all details regarding trip.
 
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import { Schema as _Schema, model } from 'mongoose';
+const Schema = _Schema;
 
 //attributes of trip and datatypes of each attribute
 const tripSchema = new Schema({
@@ -9,11 +9,15 @@ const tripSchema = new Schema({
         type: String,
         required: true
     },
-    fishermanName:{
+    inspectorName:{
         type: String,
         required: true
     },
     location:{
+        type: String,
+        required: true
+    },
+    tripTracker:{
         type: String,
         required: true
     },
@@ -26,5 +30,7 @@ const tripSchema = new Schema({
     },
 })
 //passing trip schema to required API
-const trip = mongoose.model("trip" ,tripSchema);
-module.exports = trip;
+const trip = model("trip" ,tripSchema);
+export default trip;
+
+

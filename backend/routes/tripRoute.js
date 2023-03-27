@@ -1,7 +1,7 @@
 //import routers and paymentmodel
 const router = require('express').Router();
 
-let trip = require('../models/tripModel');
+let trip = require('../models/tripModel').default;
 
 //trip get method
 router.route('/get').get((req,res) => {
@@ -14,8 +14,9 @@ router.route('/get').get((req,res) => {
 router.route('/add').post((req,res) => {
     //get data from form
     const tripId = req.body.tripId;
-    const fishermanName = req.body.fishermanName;
+    const inspectorName = req.body.inspectorName;//one going with the fisherman
     const location = req.body.location;
+    const tripTracker = req.body.tripTracker;
     const depatureTime = req.body.depatureTime;
     const arrivalTime = req.body.arrivalTime;
 
@@ -23,8 +24,9 @@ router.route('/add').post((req,res) => {
     //enter data to new schema
     const newtrip = new trip({
         tripId,
-        fishermanName,
+        inspectorName,
         location,
+        tripTracker,
         depatureTime,
         arrivalTime
     });
@@ -60,8 +62,9 @@ router.route('/update/:id').post((req, res) => {
     trip.findById(req.params.id)
         .then(trip => {
             trip.tripId = req.body.tripId;
-            trip.fishermanName = req.body.fishermanName;
+            trip.inspectorName = req.body.inspectorName;
             trip.location = req.body.location;
+            trip.tripTracker=req.body.tripTracker;
             trip.arrivalTime = req.body.arrivalTime;
             trip.depatureTime = req.body.depatureTime;
         //save trip to database and catch errors if any
