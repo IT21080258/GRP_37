@@ -4,7 +4,7 @@ const router = require('express').Router();
 let location = require('../models/locationModel');
 
 //location get method
-router.route('/get').get((req,res) => {
+router.route('/').get((req,res) => {
     location.find()
         .then(location => res.json(location))
         .catch(err => res.status(400).json('Error: '+ err));
