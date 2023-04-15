@@ -10,14 +10,13 @@ dotenv.config();
 const app = express();
 
 mongoose.set('strictQuery', true);
-
 //app midleware
 app.use(bodyParser.json());
 app.use(cors());
 
 //create database connection
 
-const PORT = process.env.PORT || 8090 ;
+const PORT = process.env.PORT || 8090;
 const URL = process.env.DB_URL ;
 mongoose.connect(URL,{
     useNewUrlParser: true,
@@ -42,7 +41,7 @@ const boatRouter = require('./routes/boatRoutes');
 app.use('/boat', boatRouter);
 
 //animal define
-const animalRouter = require('./routes/animalroute');
+const animalRouter = require('./routes/animalroute').default;
 app.use('/animal', animalRouter);
 
 

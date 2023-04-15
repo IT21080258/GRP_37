@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = Require('mongoose');
 const Schema = mongoose.Schema;
 //create animal object
 const AnimalSchema = new Schema ({
@@ -25,4 +25,4 @@ const AnimalSchema = new Schema ({
 },{timestamps:true})
 
 const Animal= mongoose.model("Animal" ,AnimalSchema );
-module.exports = Animal;
+Module.exports = Animal;
