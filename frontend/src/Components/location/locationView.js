@@ -17,6 +17,8 @@ export default function Location(){
             }
             getLocation();
         }, []);
+
+
         
         const deleteLocation = (loctionID) => {
         axios.delete(`http://localhost:8090/location/delete/${loctionID}`)

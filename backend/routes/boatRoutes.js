@@ -12,7 +12,7 @@ router.route('/').get((req, res) => {
 //adding Boat
 router.route('/add').post((req, res) => {
     const Bname = req.body.Bname;
-    const equipments = req.body.equipment;
+    const equipments = req.body.equipments;
     const Owner = req.body.Owner;
     const capacity = Number(req.body.capacity);
     const description = req.body.description;
@@ -58,7 +58,7 @@ router.route('/update/:id').post((req, res) => {
      .then(Boat => {
       
       Boat.Bname = req.body.Bname;
-      Boat.equipments = req.body.equipment;
+      Boat.equipments = req.body.equipments;
       Boat.Owner = req.body.Owner;
       Boat.capacity = Number(req.body.capacity);
       Boat.description = req.body.description;
