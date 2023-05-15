@@ -9,7 +9,7 @@ const BoatSchema = new Schema ({
         type: String,
         required: true
     },
-    equipment:{
+    equipments:{
         type : String,
         
     },
