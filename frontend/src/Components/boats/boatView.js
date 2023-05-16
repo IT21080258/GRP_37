@@ -79,8 +79,10 @@ export default function Boat(){
                                     <td>{boat.gps}</td>
 
                                     <td>
-                                        <a className="btn btn-warning" href={`/edit/${boat._id}`}>
-                                            <li className="fas fa-edit"></li>Edit
+                                        <a  href={`/edit/${boat._id}`}>
+                                            <button className="btn btn-primary">
+                                            Edit
+                                            </button>
                                         </a>
                                         {<button class="btn btn-danger"
                                         onClick={() => {
