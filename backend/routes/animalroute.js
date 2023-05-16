@@ -58,7 +58,8 @@ router.route('/update/:id').post((req, res) => {
        Animal.Size =req.body.Size;
        Animal.Migratingcountry =req.body.Migratingmonth;
        Animal.Migratingmonth = req.body.Migratingcountry;
-       Animal.Description = req.body.Description
+       Animal.Description = req.body.Description;
+       
        //save Animaldetails to database and catch errors if any
        Animal.save()
          .then(() => res.json('Animal updated!'))

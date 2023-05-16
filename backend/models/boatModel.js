@@ -24,13 +24,14 @@ const BoatSchema = new Schema ({
     description:{
         type: String,
         required: true
-    },
-    gps:{
-
-        type:String,
-        required:true
-
     }
+    // ,
+    // gps:{
+
+    //     type:String,
+    //     required:true
+
+    // }
 })
 
 const boat = mongoose.model("boat" ,BoatSchema );

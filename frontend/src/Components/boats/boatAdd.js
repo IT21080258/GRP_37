@@ -8,10 +8,10 @@ export default function BoatAdd(){
     const [Owner , setOwner]=useState("");
     const [capacity , setcapacity]=useState("");
     const [description , setdescription]=useState("");
-    const [gps , setgps]=useState("");
+    // const [gps , setgps]=useState("");
 
     function refreshPage(){
-        window.boat.reload()
+        window.location.reload()
     }
 
     function sendData(e){
@@ -23,7 +23,7 @@ export default function BoatAdd(){
         Owner,
         capacity,
         description,
-        gps
+        // gps
 
 
     }
@@ -101,13 +101,13 @@ export default function BoatAdd(){
                       </div>
 
                       {/*gps*/}
-                      <div className="form-group">
+                      {/* <div className="form-group">
                           <label for="gps">GPS</label>
                           <input type="text" className="form-control" id="gps" placeholder="Eneter the GPS"
                               onChange={(e) => {
                                   setgps(e.target.value);
                               }} />
-                      </div>
+                      </div> */}
 
                       {/*****Button******/}
                       <button type="submit" class="btn btn-primary">Submit</button>

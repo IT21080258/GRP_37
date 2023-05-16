@@ -1,10 +1,16 @@
-import React, {useEffect,useState} from "react";
+import React, {useEffect,useState, useRef} from "react";
 import axios from "axios";
+import {useReactToPrint} from "react-to-print";
+import { savePDF } from "@progress/kendo-react-pdf";
+import '../../App.css';
 // import { useNavigate } from "react-router-dom";
 
 export default function Location(){
     //declare location as state to use
     const [location, setLocation] = useState([]);
+    const [searchTerm, setsearchTerm ]=useState("");
+    const componentPDF=useRef();
+
     //GET method
     useEffect(()=>{
         function getLocation(){
@@ -30,6 +36,28 @@ export default function Location(){
             alert(err);
           });
     };
+
+    const handleDownload = () => {
+        savePDF(componentPDF.current);
+      };
+
+      const handlePrint = useReactToPrint({
+        // content: () => componentPDF.current,
+
+        content: () => {
+            // Remove the buttons temporarily
+            const buttons = document.querySelectorAll('.print-hide');
+            buttons.forEach(button => {
+              button.style.display = 'none';
+            });
+        
+            return componentPDF.current;
+          },
+
+        
+      });
+
+
     //html
     return(
         <div class = "location">
@@ -40,6 +68,19 @@ export default function Location(){
             <centre><h1>Locations of species</h1></centre>
             <br/>
             <br/>
+
+            <div ref={componentPDF} style={{width:"100%"}}>
+
+                <div id="pdf-table">
+
+            {/* search bar */}
+            <input type="text" placeholder="Search...." className="form-control" style={{marginTop:50 , marginBottom:20, width:"40%"}}
+                onChange={(e)=>{
+
+                    setsearchTerm(e.target.value);
+                }}
+                />
+
             <table className="table table-striped table-dark">
                 <thead>
                      <tr>
@@ -52,16 +93,33 @@ export default function Location(){
                 <tbody>
                     {/*show data in a table derived from the database*/}
                     {
-                         location.map((locaion)=>(
-                            <tr key={locaion._id} >
+                         location.filter(val=>{
+
+                            if(searchTerm ===''){
+
+                                return val;
+
+                            }else if(
+
+                                val.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+                                val.coordinates.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+                                
+                                ){
+
+                                return val;
+                            }
+
+                        }).map((location)=>(
+
+                            <tr key={location._id} >
             
-                                <td>{locaion.name}</td>
-                                <td>{locaion.coordinates}</td>
-                                <td>{locaion.animal}</td>                                
-                                <td>{locaion.authorizedBy}</td>
+                                <td>{location.name}</td>
+                                <td>{location.coordinates}</td>
+                                <td>{location.animal}</td>                                
+                                <td>{location.authorizedBy}</td>
             
                                 <td>{<button class="btn btn-danger" 
-                                     onClick={() => {deleteLocation(locaion._id)
+                                     onClick={() => {deleteLocation(location._id)
                                      }}>delete</button>}
                                     {/* {<button id="update" class="btn btn-dark" 
                                     onClick={() => {updateLocation(locaion._id)
@@ -73,6 +131,17 @@ export default function Location(){
                     }
                 </tbody>
             </table>
+
+            </div>       
+                </div>
+
+                <button className="btn btn-success float-right m-3" onClick={handleDownload}>
+                                Download Report
+      </button>
+
+      <button className="btn btn-primary float-right m-3" onClick={handlePrint}>
+        Print
+      </button>
             <br/>
             {/* <button type="button" onClick={onDownload} className="btn btn-success float-right m-3">Download report</button> */}
             <a href="/location/add/">
