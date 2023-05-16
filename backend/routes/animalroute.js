@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-let Animal = require('../models/animalModel');
+let Animal = require('../models/animalmodel');
 
 //read Animaldetails
 router.route('/').get((req, res) => {

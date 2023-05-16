@@ -8,9 +8,11 @@
     margin-top: 1px;
 }
 .Header_profilepic{
-    max-width: 25px;
-    max-height: 25px;
+    max-width: 30px;
+    max-height: 30px;
     margin-top:10px;
+    margin-right: 10px;
+    float: right;
 }
 .Header_search{
     height: 30px;
@@ -24,7 +26,13 @@
 a{
     padding: 5px;
     font-weight: bold;
+    color: black;
 }
 .Header_nav{
     margin-top: 15px;
+}
+.Header_home{
+    margin-top: 10px;
+    font-size: 25px;
+    
 }
