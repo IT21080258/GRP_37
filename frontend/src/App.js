@@ -17,7 +17,10 @@ import Homepage from './Components/Homepage/Homepage';
 
 //animal
 import AnimalAdd from './Components/animal/animalAdd';
-import AnimalView from './Components/animal/animalView'
+import AnimalView from './Components/animal/animalView';
+
+//login
+import Login from './Components/Login/Login';
 
 
 function App() {
@@ -26,6 +29,10 @@ function App() {
     <div>
       <Header/>
       <Routes>
+
+        {/* login */}
+        <Route path="/" element={<Login/>}/>
+
         {/* location attributes */}
         <Route path='/location/' exact element={<Location/>}/>
         <Route path='/location/add/' exact element={<AddLocation/>}/>

@@ -69,5 +69,25 @@ router.route('/update/:id').post((req, res) => {
     })
       .catch(err => res.status(400).json('Error: ' + err));
   });
+
+  router.route('/login').post((req, res) => {
+    const {name, password } = req.body;
+  
+    // Check if the username and password match any user in the database
+    user.findOne({ name: name, password: password })
+      .then(user => {
+        if (user) {
+          // Login successful
+          res.json({ message: 'Login successful' });
+        } else {
+          // Invalid username or password
+          res.status(401).json({ message: 'Invalid username or password' });
+        }
+      })
+      .catch(error => {
+        // Error occurred during database query
+        res.status(500).json({ message: 'Internal server error' });
+      });
+  });
   
  module.exports = router;
