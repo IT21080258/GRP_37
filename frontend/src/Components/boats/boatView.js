@@ -10,9 +10,9 @@ export default function Boat(){
     
     //declare boat as state to use
     const [boat, setBoat] = useState([]);
-    const[updateboat, setupdateboat]=useState(-1)
     const componentPDF=useRef();
     const [searchTerm, setsearchTerm ]=useState("");
+    const[updateboat, setupdateboat]=useState(-1);
 
 
     //GET method
@@ -90,7 +90,7 @@ export default function Boat(){
 
                 <div id="pdf-table">
 
-        
+                 {/* search bar  */}
                 <input type="text" placeholder="Search...." className="form-control" style={{marginTop:50 , marginBottom:20, width:"40%"}}
                 onChange={(e)=>{
 

@@ -6,6 +6,7 @@ import '../../App.css';
 // import { useNavigate } from "react-router-dom";
 
 export default function Location(){
+
     //declare location as state to use
     const [location, setLocation] = useState([]);
     const [searchTerm, setsearchTerm ]=useState("");
@@ -121,9 +122,11 @@ export default function Location(){
                                 <td>{<button class="btn btn-danger" 
                                      onClick={() => {deleteLocation(location._id)
                                      }}>delete</button>}
+
                                     {/* {<button id="update" class="btn btn-dark" 
                                     onClick={() => {updateLocation(locaion._id)
                                     }}>update</button>} */}
+
                                 </td>
                             </tr>
 
@@ -137,12 +140,14 @@ export default function Location(){
 
                 <button className="btn btn-success float-right m-3" onClick={handleDownload}>
                                 Download Report
-      </button>
+                </button>
 
-      <button className="btn btn-primary float-right m-3" onClick={handlePrint}>
-        Print
-      </button>
+                <button className="btn btn-primary float-right m-3" onClick={handlePrint}>
+                    Print
+                </button>
+
             <br/>
+            
             {/* <button type="button" onClick={onDownload} className="btn btn-success float-right m-3">Download report</button> */}
             <a href="/location/add/">
             <button>Add new location</button>
