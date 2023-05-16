@@ -1,0 +1,30 @@
+.Header_Content{
+    height: 54px;
+    background-color: aquamarine;
+    border-bottom: 1px solid #ddbbdd;
+}
+
+.Header_logo{
+    margin-top: 1px;
+}
+.Header_profilepic{
+    max-width: 25px;
+    max-height: 25px;
+    margin-top:10px;
+}
+.Header_search{
+    height: 30px;
+    width: 215px;
+    margin-top: 10px;
+    border: 1px solid #ddbbdd;
+    text-align: center;
+    background-color: #fafafa;
+    border-radius: 5px;
+}
+a{
+    padding: 5px;
+    font-weight: bold;
+}
+.Header_nav{
+    margin-top: 15px;
+}

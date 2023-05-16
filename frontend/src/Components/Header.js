@@ -1,27 +1,33 @@
 import React from "react";
+import './Header.css'
+import Grid from '@mui/material/Grid';
+import logo from '../images/logo.png';
+import Avatar from '@mui/material/Avatar';
 
 function Header(){
 
     return(
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/#">Home</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/location/">location<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/boat/">boat<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/#">Pricing</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <div>
+                <div className='Header_Content'>
+                    <Grid container>
+                        <Grid xs={2}>
+                            <img className='Header_logo' src = {logo} width="50px"/>
+                        </Grid>
+                        <Grid xs={3}>
+                            <div className="Header_nav">
+                            <a href="/location">location</a>
+                            <a href="/boat">boat</a>
+                            </div>
+                        </Grid>
+                        <Grid xs={6}>
+                            <input className='Header_search' text="text" placeholder='Search'/>
+                        </Grid>
+                        <Grid xs={1}>
+                            <Avatar className='Header_profilepic'/>
+                        </Grid>
+                    </Grid>
+                </div>
+            </div> 
     )
 }
 
